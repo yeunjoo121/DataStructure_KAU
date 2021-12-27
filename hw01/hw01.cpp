@@ -47,12 +47,12 @@ void bth_parsing(string birth, int bth[3])
 
 int getAge(Date today, int birth[3])
 {
-    int age = today.getYear() - birth[0];
+    int age = today.getYear() - birth[0] - 1;
 
-    //생일 안지났음
-    if (!(today.getMonth() < birth[1] || (today.getMonth() == birth[1] && today.getDate() >= birth[2])))
+    //생일 지났음
+    if (today.getMonth() > birth[1] || (today.getMonth() == birth[1] && today.getDate() >= birth[2]))
     {
-        age--;
+        age++;
     }
     return (age);
 }
